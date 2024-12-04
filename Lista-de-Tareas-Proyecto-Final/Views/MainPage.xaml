@@ -13,20 +13,20 @@
 
             <HorizontalStackLayout Spacing="10" Padding="0">
                 <Entry x:Name="TaskEntry"
-           Placeholder="Add something to do..."
-           HorizontalOptions="FillAndExpand"
-           VerticalOptions="Center"
-           HeightRequest="50"
-           FontSize="18"
-           Margin="0,0,10,0" />
-                <Button <Button Text="Save"
-            BackgroundColor="#2ECC71"
-            TextColor="White"
-            CornerRadius="10"
-            VerticalOptions="Center"
-            HeightRequest="50"
-            WidthRequest="80"
-            Clicked="OnSaveClicked" />
+                       Placeholder="Add something to do..."
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Center"
+                       HeightRequest="50"
+                       FontSize="18"
+                       Margin="0,0,10,0" />
+                <Button Text="Save"
+                        BackgroundColor="#2ECC71"
+                        TextColor="White"
+                        CornerRadius="10"
+                        VerticalOptions="Center"
+                        HeightRequest="50"
+                        WidthRequest="80"
+                        Clicked="OnSaveClicked" />
             </HorizontalStackLayout>
 
 
@@ -56,3 +56,4 @@
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
+

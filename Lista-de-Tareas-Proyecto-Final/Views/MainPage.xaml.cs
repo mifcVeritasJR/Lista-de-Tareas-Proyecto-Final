@@ -1,10 +1,10 @@
 ﻿using System.Collections.ObjectModel;
+using System.Formats.Tar;
 
 namespace Lista_de_Tareas_Proyecto_Final
 {
     public partial class MainPage : ContentPage
     {
-
         public ObservableCollection<TaskItem> Tasks { get; set; }
 
         public MainPage()
