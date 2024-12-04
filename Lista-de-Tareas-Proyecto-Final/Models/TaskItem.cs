@@ -1,38 +1,14 @@
-﻿using Microsoft.Build.Utilities;
-using SQLite;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using SQLite;
 
-namespace TodoListApp
+namespace Lista_de_Tareas_Proyecto_Final.Models
 {
-    public class Database
+    public class TaskItem
     {
-        private readonly SQLiteAsyncConnection _database;
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
 
-        public Database(string dbPath)
-        {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<TaskItem>().Wait();
-        }
-
-        public Task<List<TaskItem>> GetTasksAsync()
-        {
-            return _database.Table<TaskItem>().ToListAsync();
-        }
-
-        public Task<int> SaveTaskAsync(TaskItem task)
-        {
-            return _database.InsertAsync(task);
-        }
-
-        public Task<int> UpdateTaskAsync(TaskItem task)
-        {
-            return _database.UpdateAsync(task);
-        }
-
-        public Task<int> DeleteTaskAsync(TaskItem task)
-        {
-            return _database.DeleteAsync(task);
-        }
+        public required string Title { get; set; }
+        public required string Description { get; set; }
+        public required string Status { get; set; }
     }
 }
