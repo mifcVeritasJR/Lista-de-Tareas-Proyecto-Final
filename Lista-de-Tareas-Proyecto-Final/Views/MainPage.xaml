@@ -29,28 +29,35 @@
             </HorizontalStackLayout>
 
             <CollectionView x:Name="TaskList"
-                            Margin="0,20,0,0">
+                Margin="0,20,0,0">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems>
                                     <SwipeItem Text="Remove"
-                                               BackgroundColor="Red"
-                                               Invoked="OnRemoveClicked" />
+                                   BackgroundColor="Red"
+                                   Invoked="OnRemoveClicked" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
-                            <Grid Padding="10">
-                                <CheckBox IsChecked="{Binding IsCompleted}" />
+                            <Grid Padding="10" ColumnDefinitions="40, *" VerticalOptions="Center">
+
+                                <CheckBox IsChecked="{Binding IsCompleted}" 
+                              HorizontalOptions="Start" 
+                              VerticalOptions="Center" />
+
+
                                 <Label Text="{Binding Title}"
-                                       FontSize="18"
-                                       VerticalOptions="Center"
-                                       Margin="10,0,0,0" />
+                           FontSize="18"
+                           VerticalOptions="Center"
+                           Grid.Column="1"
+                           Margin="10,0,0,0" />
                             </Grid>
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
 
         </VerticalStackLayout>
     </ContentPage.Content>
