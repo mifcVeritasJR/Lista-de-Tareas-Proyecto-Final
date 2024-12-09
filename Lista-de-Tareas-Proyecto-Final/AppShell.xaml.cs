@@ -4,7 +4,8 @@
     {
         public AppShell()
         {
-            InitializeComponent();
+            InitializeComponent();  // Este método debe estar aquí.
         }
     }
 }
+
