@@ -10,7 +10,6 @@
                    Margin="0,20,0,20"
                    FontAttributes="Bold" />
 
-
             <HorizontalStackLayout Spacing="10" Padding="0">
                 <Entry x:Name="TaskEntry"
                        Placeholder="Add something to do..."
@@ -28,7 +27,6 @@
                         WidthRequest="80"
                         Clicked="OnSaveClicked" />
             </HorizontalStackLayout>
-
 
             <CollectionView x:Name="TaskList"
                             Margin="0,20,0,0">
@@ -53,7 +51,7 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
-
