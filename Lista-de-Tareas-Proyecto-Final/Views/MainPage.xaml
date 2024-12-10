@@ -4,7 +4,7 @@
     <ContentPage.Content>
         <VerticalStackLayout Padding="20">
 
-            <Label Text="My Todos"
+            <Label Text="My To-dos"
                    FontSize="36"
                    HorizontalOptions="Center"
                    Margin="0,20,0,20"
@@ -36,29 +36,30 @@
                             <SwipeView.RightItems>
                                 <SwipeItems>
                                     <SwipeItem Text="Remove"
-                                   BackgroundColor="Red"
-                                   Invoked="OnRemoveClicked" />
+                                               BackgroundColor="Red"
+                                               Invoked="OnRemoveClicked" />
+                                    <!-- Nuevo botón de Editar -->
+                                    <SwipeItem Text="Edit"
+                                               BackgroundColor="Orange"
+                                               Invoked="OnEditClicked" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
                             <Grid Padding="10" ColumnDefinitions="40, *" VerticalOptions="Center">
-
                                 <CheckBox IsChecked="{Binding IsCompleted}" 
-                              HorizontalOptions="Start" 
-                              VerticalOptions="Center" />
-
-
+                                          HorizontalOptions="Start" 
+                                          VerticalOptions="Center" />
                                 <Label Text="{Binding Title}"
-                           FontSize="18"
-                           VerticalOptions="Center"
-                           Grid.Column="1"
-                           Margin="10,0,0,0" />
+                                       FontSize="18"
+                                       VerticalOptions="Center"
+                                       Grid.Column="1"
+                                       Margin="10,0,0,0" />
                             </Grid>
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
+
