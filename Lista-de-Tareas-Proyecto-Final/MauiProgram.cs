@@ -17,7 +17,7 @@ namespace Lista_de_Tareas_Proyecto_Final
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

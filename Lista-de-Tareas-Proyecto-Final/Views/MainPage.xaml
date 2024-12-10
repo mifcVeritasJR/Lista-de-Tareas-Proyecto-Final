@@ -47,7 +47,8 @@
                             <Grid Padding="10" ColumnDefinitions="40, *" VerticalOptions="Center">
                                 <CheckBox IsChecked="{Binding IsCompleted}" 
                                           HorizontalOptions="Start" 
-                                          VerticalOptions="Center" />
+                                          VerticalOptions="Center" 
+                                          CheckedChanged="OnCheckedChanged" />
                                 <Label Text="{Binding Title}"
                                        FontSize="18"
                                        VerticalOptions="Center"
@@ -62,4 +63,3 @@
         </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
-
