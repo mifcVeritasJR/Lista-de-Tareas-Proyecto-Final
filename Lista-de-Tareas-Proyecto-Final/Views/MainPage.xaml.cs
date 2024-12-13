@@ -97,5 +97,14 @@ namespace Lista_de_Tareas_Proyecto_Final
                 }
             }
         }
+
+        void OnTaskEntryTextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Ensures the text remains visible in the Entry
+            if (sender is Entry entry)
+            {
+                entry.Text = e.NewTextValue;
+            }
+        }
     }
 }
