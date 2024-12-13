@@ -21,7 +21,7 @@
                        FontSize="18"
                        Margin="0,0,10,0" />
                 <Button Text="Save"
-                        BackgroundColor="#2ECC71"
+                        BackgroundColor="#00C853"
                         TextColor="White"
                         CornerRadius="10"
                         VerticalOptions="Center"
