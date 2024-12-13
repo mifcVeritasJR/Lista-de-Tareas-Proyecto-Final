@@ -1,6 +1,5 @@
 ﻿using Lista_de_Tareas_Proyecto_Final.Models;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Lista_de_Tareas_Proyecto_Final
@@ -18,11 +17,7 @@ namespace Lista_de_Tareas_Proyecto_Final
             try
             {
                 var tasks = await App.Database.GetTasksAsync();
-
-                // Ordenar tareas: Primero "Por hacer", luego "En Proceso", y finalmente "Finalizado"
-                var orderedTasks = tasks.OrderBy(t => t.Status == "Por hacer" ? 0 : t.Status == "En Proceso" ? 1 : 2).ToList();
-
-                TaskList.ItemsSource = orderedTasks;
+                TaskList.ItemsSource = tasks;
             }
             catch (Exception ex)
             {
