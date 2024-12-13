@@ -81,8 +81,8 @@
                                         WidthRequest="100"
                                         Grid.Column="2">
                                     <Picker.Items>
-                                        <x:String>Por hacer</x:String>
-                                        <x:String>En progreso</x:String>
+                                        <x:String>Por Hacer</x:String>
+                                        <x:String>En Proceso</x:String>
                                         <x:String>Finalizado</x:String>
                                     </Picker.Items>
                                 </Picker>
