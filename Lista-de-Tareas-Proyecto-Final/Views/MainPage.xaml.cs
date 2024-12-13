@@ -1,4 +1,6 @@
 ﻿using Lista_de_Tareas_Proyecto_Final.Models;
+using System;
+using System.Threading.Tasks;
 
 namespace Lista_de_Tareas_Proyecto_Final
 {
@@ -12,8 +14,15 @@ namespace Lista_de_Tareas_Proyecto_Final
 
         async void LoadTasks()
         {
-            var tasks = await App.Database.GetTasksAsync();
-            TaskList.ItemsSource = tasks;
+            try
+            {
+                var tasks = await App.Database.GetTasksAsync();
+                TaskList.ItemsSource = tasks;
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"No se pudieron cargar las tareas: {ex.Message}", "OK");
+            }
         }
 
         async void OnSaveClicked(object sender, EventArgs e)
@@ -25,7 +34,7 @@ namespace Lista_de_Tareas_Proyecto_Final
                     Title = TaskEntry.Text,
                     Description = "",
                     IsCompleted = false,
-                    Status = "Por hacer" // Estado por defecto
+                    Status = "Por hacer"
                 };
 
                 await App.Database.SaveTaskAsync(newTask);
@@ -43,8 +52,12 @@ namespace Lista_de_Tareas_Proyecto_Final
         {
             if (sender is SwipeItem swipeItem && swipeItem.BindingContext is TaskItem taskToDelete)
             {
-                await App.Database.DeleteTaskAsync(taskToDelete);
-                LoadTasks();
+                bool confirm = await DisplayAlert("Confirmar", "¿Estás seguro de que deseas eliminar esta tarea?", "Sí", "No");
+                if (confirm)
+                {
+                    await App.Database.DeleteTaskAsync(taskToDelete);
+                    LoadTasks();
+                }
             }
         }
 
@@ -52,7 +65,6 @@ namespace Lista_de_Tareas_Proyecto_Final
         {
             if (sender is SwipeItem swipeItem && swipeItem.BindingContext is TaskItem taskToEdit)
             {
-                // Muestra un cuadro de diálogo para editar el nombre de la tarea
                 string newTitle = await DisplayPromptAsync("Editar tarea", "Escribe el nuevo nombre de la tarea:", initialValue: taskToEdit.Title);
 
                 if (!string.IsNullOrWhiteSpace(newTitle))
