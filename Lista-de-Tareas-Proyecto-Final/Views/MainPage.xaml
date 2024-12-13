@@ -1,6 +1,8 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lista_de_Tareas_Proyecto_Final.MainPage">
+
     <ContentPage.Content>
         <VerticalStackLayout Padding="20">
 
@@ -29,7 +31,7 @@
             </HorizontalStackLayout>
 
             <CollectionView x:Name="TaskList"
-                Margin="0,20,0,0">
+                            Margin="0,20,0,0">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <SwipeView>
@@ -38,22 +40,38 @@
                                     <SwipeItem Text="Remove"
                                                BackgroundColor="Red"
                                                Invoked="OnRemoveClicked" />
-                                    <!-- Nuevo botón de Editar -->
                                     <SwipeItem Text="Edit"
                                                BackgroundColor="Orange"
                                                Invoked="OnEditClicked" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
-                            <Grid Padding="10" ColumnDefinitions="40, *" VerticalOptions="Center">
+                            <Grid Padding="10" ColumnDefinitions="40, *, Auto" VerticalOptions="Center">
                                 <CheckBox IsChecked="{Binding IsCompleted}" 
                                           HorizontalOptions="Start" 
                                           VerticalOptions="Center" 
-                                          CheckedChanged="OnCheckedChanged" />
+                                          CheckedChanged="OnCheckBoxCheckedChanged" />
+
                                 <Label Text="{Binding Title}"
                                        FontSize="18"
                                        VerticalOptions="Center"
                                        Grid.Column="1"
                                        Margin="10,0,0,0" />
+
+                                <!-- Etiqueta "Estado:" y Picker en el mismo nivel -->
+                                <HorizontalStackLayout Grid.Column="2" VerticalOptions="Center" Spacing="5">
+                                    <Label Text="Estado:"
+                                           FontSize="14"
+                                           VerticalOptions="Center" />
+                                    <Picker SelectedItem="{Binding Status}"
+                                            SelectedIndexChanged="OnStatusChanged"
+                                            WidthRequest="100">
+                                        <Picker.Items>
+                                            <x:String>Por hacer</x:String>
+                                            <x:String>En progreso</x:String>
+                                            <x:String>Finalizado</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </HorizontalStackLayout>
                             </Grid>
                         </SwipeView>
                     </DataTemplate>
