@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <VerticalStackLayout Padding="20">
 
-            <Label Text="My To-dos"
+            <Label Text="Proyecto Final"
                    FontSize="36"
                    HorizontalOptions="Center"
                    Margin="0,20,0,20"
